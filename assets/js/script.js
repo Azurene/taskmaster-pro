@@ -188,14 +188,6 @@ $(".card .list-group").sortable({
   scroll: false,
   tolerance: "pointer",
   helper: "clone",
-  activate: function(event) {
-  },
-  deactivate: function(event) {
-  },
-  over: function(event) {
-  },
-  out: function(event) {
-  },
   update: function(event) {
     var tempArr = [];
 
@@ -226,4 +218,12 @@ $(".card .list-group").sortable({
     tasks[arrName] = tempArr;
     saveTasks();
   }
+});
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    ui.draggable.remove();
+}
 });
